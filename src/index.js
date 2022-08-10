@@ -1,10 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+{
+  /* <ul>
+  <li></li>
+</ul> */
+}
+
+// React.createElement
+
+// const element = (
+//   <ul>
+//     <li>item</li>
+//   </ul>
+// );
+
+// const element = React.createElement(tag, props, children)
+
+// const element = React.createElement(
+//   "ul",
+//   null,
+//   React.createElement("li", null, "item"),
+//   React.createElement("li", null, "item"),
+//   React.createElement("li", null, "item"),
+//   React.createElement("li", null, "item")
+// );
+
+{
+  /* <ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul> */
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />

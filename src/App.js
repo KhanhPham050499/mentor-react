@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+
+import React from "react";
+
+import "./App.css";
+
+import Layout from "./components/layout";
 
 function App() {
+  // return <div className="adad">Hello world!</div>; class => className
+  // return <input />; thẻ đóng
+
+  // Props
+  // function Item(props) {
+  //   const { title, placeholder } = props;
+
+  //   return (
+  //     <>
+  //       <label>{title}</label>
+  //       <input placeholder={placeholder} />
+  //     </>
+  //   );
+  // }
+
+  // children
+
+  function Button({ children }) {
+    console.log(children);
+    return <button>{children}</button>;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <React.Fragment></React.Fragment> thẻ vô danh */}
+
+      {/* <Item title="Name" placeholder="Enter Name" />
+      <Item title="Gender" placeholder="Enter Gender" /> */}
+
+      {/* <Button name="Click" /> */}
+
+      {/* <Button >
+      </Button> */}
+
+      {/* <></>  thẻ vô danh */}
+
+      <Layout />
     </div>
   );
 }
