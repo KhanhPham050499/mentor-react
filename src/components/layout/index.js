@@ -9,6 +9,7 @@ export default class Layout extends Component {
     this.state = {
       todos: [],
       value: "",
+      showTodos: true,
     };
   }
 
@@ -30,7 +31,50 @@ export default class Layout extends Component {
       ],
       value: "",
     });
+
+    // const todosJson = localStorage.getItem("todos")
+    //   ? JSON.parse(localStorage.getItem("todos"))
+    //   : [];
+
+    // localStorage.setItem(
+    //   "todos",
+    //   JSON.stringify([
+    //     ...todosJson,
+    //     {
+    //       id: Math.random(),
+    //       title: this.state.value,
+    //       checked: false,
+    //     },
+    //   ])
+    // );
   }
+
+  // componentWillMount() {
+  //   console.log("componentWillMount");
+  //   debugger;
+  // }
+
+  componentDidMount() {
+    console.log("componentDidMount");
+
+    // const todosJson = localStorage.getItem("todos")
+    //   ? JSON.parse(localStorage.getItem("todos"))
+    //   : [];
+
+    // console.log(todosJson);
+
+    // this.setState({
+    //   todos: [],
+    // });
+
+    // debugger;
+  }
+
+  // shouldComponentUpdate() {
+  //   return true; // default
+  // }
+
+  componentWillUnmount() {}
 
   onHandleDeleteTodo(id) {
     this.setState({
@@ -53,19 +97,31 @@ export default class Layout extends Component {
     });
   }
 
+  showHideTodos() {
+    this.setState({
+      showTodos: !this.state.showTodos,
+    });
+  }
+
   render() {
     return (
       <div>
-        <AddTodo
-          value={this.state.value}
-          onHandleChange={(value) => this.onHandleChange(value)}
-          onHandeAddTodo={() => this.onHandeAddTodo()}
-        />
-        <ItemTodo
-          todos={this.state.todos}
-          onHandleDeleteTodo={(id) => this.onHandleDeleteTodo(id)}
-          onHandleChecked={(id, value) => this.onHandleChecked(id, value)}
-        />
+        <button onClick={() => this.showHideTodos()}>Show/Hide Todos</button>
+
+        {this.state.showTodos && (
+          <>
+            <AddTodo
+              value={this.state.value}
+              onHandleChange={(value) => this.onHandleChange(value)}
+              onHandeAddTodo={() => this.onHandeAddTodo()}
+            />
+            <ItemTodo
+              todos={this.state.todos}
+              onHandleDeleteTodo={(id) => this.onHandleDeleteTodo(id)}
+              onHandleChecked={(id, value) => this.onHandleChecked(id, value)}
+            />
+          </>
+        )}
       </div>
     );
   }

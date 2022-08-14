@@ -5,6 +5,10 @@ export default class AddTodo extends Component {
     super(props);
   }
 
+  componentWillUnmount() {
+    console.log("unmounting");
+  }
+
   render() {
     return (
       <div>
